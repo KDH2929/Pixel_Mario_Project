@@ -1,0 +1,12 @@
+# Ignore all files by default, but scan all directories
+*
+!*/
+
+
+# Except
+!UE5.sln 
+!.gitignore
+!Engine/Shaders/
+!Engine/Source/Runtime/Engine/
+!Engine/Shaders/**
+!Engine/Source/Runtime/Engine/**
