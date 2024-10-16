@@ -10,3 +10,8 @@
 !Engine/Source/Runtime/Engine/
 !Engine/Shaders/**
 !Engine/Source/Runtime/Engine/**
+
+
+
+# Ignore other .gitignore
+*/.gitignore
