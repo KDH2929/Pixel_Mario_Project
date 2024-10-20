@@ -4,7 +4,7 @@
 
 
 # Except
-!UE5.sln 
+!UE5.sln
 !.gitignore
 !Engine/Shaders/
 !Engine/Source/Runtime/Engine/

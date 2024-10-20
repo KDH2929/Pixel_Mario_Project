@@ -1694,11 +1694,8 @@ static void SetSlotsForShadingModelType(bool Slots[], EMaterialShadingModel Shad
 		SetSharedGBufferSlots(Slots);
 		Slots[GBS_SeparatedMainDirLight] = true;
 		break;
-	case MSM_ThinTranslucent:
-		// thin translucent doesn't write to the GBuffer
-		break;
-	
-	//-------------------------------------------------
+
+		//-------------------------------------------------
 	case MSM_AniToon:
 		SetSharedGBufferSlots(Slots);
 		if (bMergeCustom)
@@ -1725,8 +1722,16 @@ static void SetSlotsForShadingModelType(bool Slots[], EMaterialShadingModel Shad
 			Slots[GBS_Opacity] = true;
 		}
 		break;
+
+	//------------------------------------------------------
+
+	case MSM_ThinTranslucent:
+		// thin translucent doesn't write to the GBuffer
+		break;
+	
 	}
 }
+
 
 
 
@@ -1843,11 +1848,29 @@ static void DetermineUsedMaterialSlots(
 	{
 	}
 
+	//-------------------------------------------------------------------------------------------------------
+	
+	if (Mat.MATERIAL_SHADINGMODEL_ANI_TOON)
+	{
+		SetStandardGBufferSlots(Slots, bWriteEmissive, bHasTangent, bHasVelocity, bHasStaticLighting, bIsStrataMaterial);
+		Slots[GBS_CustomData] = bUseCustomData;
+	}
+
+	if (Mat.MATERIAL_SHADINGMODEL_ANI_TOON_UNLIT)
+	{
+		SetStandardGBufferSlots(Slots, bWriteEmissive, bHasTangent, bHasVelocity, bHasStaticLighting, bIsStrataMaterial);
+		Slots[GBS_CustomData] = bUseCustomData;
+	}
+
+	//-------------------------------------------------------------------------------------------------------
+
 	if (Mat.MATERIAL_SHADINGMODEL_TOON) //추가
 	{
 		SetStandardGBufferSlots(Slots, bWriteEmissive, bHasTangent, bHasVelocity, bHasStaticLighting, bIsStrataMaterial);
 		Slots[GBS_CustomData] = bUseCustomData;
 	}
+
+
 
 
 }
