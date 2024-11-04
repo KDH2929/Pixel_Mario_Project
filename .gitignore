@@ -5,7 +5,10 @@
 
 # Except
 !UE5.sln
-!.gitignore
+!/.gitignore
+
+!ShaderMaterial.h
+
 !Engine/Shaders/
 !Engine/Source/Runtime/Engine/
 !Engine/Shaders/**
@@ -13,5 +16,3 @@
 
 
 
-# Ignore other .gitignore
-*/.gitignore
