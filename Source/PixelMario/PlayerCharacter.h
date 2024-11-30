@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "ThirdPersonCharacter.h"
-#include "PlayerChracter.generated.h"
+#include "PlayerCharacter.generated.h"
 
 
 UCLASS()
-class PIXELMARIO_API APlayerChracter : public AThirdPersonCharacter
+class PIXELMARIO_API APlayerCharacter : public AThirdPersonCharacter
 {
 	GENERATED_BODY()
 
 public:
-	APlayerChracter();
+	APlayerCharacter();
 
 	UFUNCTION(BlueprintCallable)
 	int GetAnimState();
@@ -26,6 +26,10 @@ protected:
 	void PlayDance3();
 	void PlayDance4();
 	void PlayDance5();
+
+
+	void ChangeFOV(const FInputActionValue& Value);
+	void ChangeFreeCam();
 
 
 private:
@@ -43,6 +47,13 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* KeyNum5_Action;
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* Scroll_Action;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* ChangeFreeCam_Action;
 
 	int AnimState;
 
