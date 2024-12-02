@@ -8,6 +8,7 @@ public class PixelMario : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "EnhancedInput", "RenderCore", "UMG" });
-	}
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "EnhancedInput", "RenderCore", "UMG", "NavigationSystem" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "ProceduralMeshComponent" });
+    }
 }
