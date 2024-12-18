@@ -1473,11 +1473,12 @@ void FPixelShaderInOut_MainPS(
 #endif
 
 	
-//--------------------------------------------------------------------------------------------------	
+//--------------------------------------------------------------------------------------------------
+
 #if MATERIAL_SHADINGMODEL_ANI_TOON || MATERIAL_SHADINGMODEL_ANI_TOON_UNLIT
 	if(GBuffer.ShadingModelID == SHADINGMODELID_ANI_TOON || SHADINGMODELID_ANI_TOON_UNLIT)
 	{
-		Color = BaseColor;
+		Color = BaseColor * 0.4;
 	}
 #endif	
 //--------------------------------------------------------------------------------------------------
